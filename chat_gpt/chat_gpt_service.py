@@ -7,7 +7,6 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
-
 class ChatGptService:
 
     @classmethod

@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, request
+
 from chat_gpt.chat_gpt_service import ChatGptService
 from chat_gpt.chat_gpt_model import MessageRequestDTO
 
@@ -13,7 +14,6 @@ def get_ai_model_answer():
             MessageRequestDTO.new_instance_from_flask_body(body)
         )
     })
-
 
 @chat_gpt_route.route('/model')
 def get_models():

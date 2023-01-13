@@ -1,10 +1,10 @@
 from dataclasses import dataclass, field
 from typing import Optional
+import json
 
 DEFAULT_MODEL = 'text-davinci-003'
 DEFAULT_TEMPERATURE = 0.9
 DEFAULT_MAX_TOKENS = 1024
-
 
 @dataclass
 class MessageRequestDTO:
@@ -17,7 +17,7 @@ class MessageRequestDTO:
     def new_instance_from_flask_body(data: dict) -> 'MessageRequestDTO':
         print(data)
         if 'question' not in data:
-            raise Exception('question attribute not found')
+            raise Exception('question attribute not found ' + json.dumps(data))
 
         res = MessageRequestDTO(
             question=data['question']
