@@ -5,10 +5,9 @@ from dotenv import load_dotenv
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 load_dotenv(os.path.join(BASE_DIR, ".env"))
-
 openai.api_key = os.getenv('OPENAI_API_KEY')
-class ChatGptService:
 
+class ChatGptService:
     @classmethod
     def get_ai_model_answer(cls,data:MessageRequestDTO):
         return openai.Completion.create(
